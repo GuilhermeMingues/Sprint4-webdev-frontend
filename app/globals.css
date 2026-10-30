@@ -859,6 +859,15 @@ h4 {
     display: none;
   }
 
+  .contact-grid,
+  .simulator-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info li {
+    overflow-wrap: anywhere;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     text-align: center;

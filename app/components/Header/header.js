@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import useAuth from "../../hooks/useAuth";
 import { navLinks } from "../../data/landing";
 
 function Header() {
+  const { autenticado } = useAuth();
+
   return (
     <header className="header">
       <nav className="navbar">
@@ -17,8 +22,11 @@ function Header() {
           ))}
         </ul>
 
-        <Link href="/#solucao" className="nav-button">
-          Conheça a JOVI
+        <Link
+          href={autenticado ? "/minha-conta" : "/login"}
+          className="nav-button"
+        >
+          {autenticado ? "Minha conta" : "Entrar"}
         </Link>
       </nav>
     </header>

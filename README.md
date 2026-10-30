@@ -2,8 +2,9 @@
 
 Evolução do projeto da Sprint 03. A Landing Page da JOVI, que já tinha sido levada para o React, agora ganhou componentização com props, rotas públicas e privadas, login, hooks customizados e consumo de APIs (uma própria e uma pública de terceiros).
 
-🔗 **Deploy:** [sprint-web-dev3.vercel.app](https://sprint-web-dev3.vercel.app)
-🔗 **Repositório:** [github.com/GuilhermeMingues/Sprint4-webdev-frontend](https://github.com/GuilhermeMingues/Sprint4-webdev-frontend.git)
+🔗 **Deploy:** [jovi-sprint4.vercel.app](https://jovi-sprint4.vercel.app)
+🔗 **Repositório:** [github.com/GuilhermeMingues/Sprint4-webdev-frontend](https://github.com/GuilhermeMingues/Sprint4-webdev-frontend)
+
 ## Tecnologias utilizadas
 
 - [Next.js](https://nextjs.org/) 16 (App Router), com as rotas de API para o nosso back-end

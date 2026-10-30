@@ -11,4 +11,10 @@ export const usuarios = [
     email: "cliente@jovi.com",
     senha: "cliente123",
   },
+  {
+    id: 3,
+    nome: "Usuário Teste",
+    email: "teste@jovi.com",
+    senha: "teste123",
+  },
 ];

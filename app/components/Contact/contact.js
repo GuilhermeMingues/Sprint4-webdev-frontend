@@ -1,20 +1,15 @@
 "use client";
 
+import SectionTitle from "../SectionTitle/sectionTitle";
+import { contactChannels } from "../../data/landing";
+
 function Contact() {
   return (
     <section id="contato" className="section contact">
-      <div className="section-title">
-        <span>05 — CONTATO</span>
-
-        <h2>
-          Fale com a <strong>equipe JOVI.</strong>
-        </h2>
-
-        <p>
-          Dúvidas sobre o projeto ou sobre a solução? Manda uma mensagem ou usa
-          um dos canais abaixo.
-        </p>
-      </div>
+      <SectionTitle tag="05 — CONTATO" title="Fale com a" highlight="equipe JOVI.">
+        Dúvidas sobre o projeto ou sobre a solução? Manda uma mensagem ou usa um
+        dos canais abaixo.
+      </SectionTitle>
 
       <div className="contact-grid">
         <form className="contact-form" action="#" method="post">
@@ -60,18 +55,12 @@ function Contact() {
           <h3>Outros canais</h3>
 
           <ul>
-            <li>
-              <span>E-mail</span>EletricMinds@gmail.com.br
-            </li>
-            <li>
-              <span>Site</span>EletricMinds.com.br
-            </li>
-            <li>
-              <span>Instagram</span>@EletricMinds
-            </li>
-            <li>
-              <span>Suporte</span> · Via email ou DM | seg–sex, 9h–18h
-            </li>
+            {contactChannels.map((channel) => (
+              <li key={channel.label}>
+                <span>{channel.label}</span>
+                {channel.value}
+              </li>
+            ))}
           </ul>
         </address>
       </div>

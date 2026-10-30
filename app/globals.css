@@ -1,3 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jovi-bg: #242933;
+  --color-jovi-bg-alt: #1a1e26;
+  --color-jovi-card: #2a2f3a;
+  --color-jovi-border: #3a3f4a;
+  --color-jovi-muted: #aab0bd;
+  --color-jovi-faint: #7c8494;
+  --color-jovi-accent: #0000ee;
+  --color-jovi-accent-hover: #2a2aff;
+}
+
+@layer base {
 :root {
 
   --color-bg: #242933;
@@ -45,6 +59,15 @@ ul {
   list-style: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+}
+}
+
+@layer components {
 /* ===== HEADER ===== */
 
 .header {
@@ -487,6 +510,7 @@ ul {
 
 .gallery-caption h3 {
   margin-top: 5px;
+  font-size: 1.17em;
 }
 
 .gallery-content {
@@ -967,4 +991,5 @@ ul {
   .footer {
     padding: 30px 20px;
   }
+}
 }

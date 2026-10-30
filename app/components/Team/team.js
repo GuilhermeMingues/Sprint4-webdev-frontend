@@ -1,53 +1,27 @@
-"use client";
+import SectionTitle from "../SectionTitle/sectionTitle";
+import MemberCard from "../MemberCard/memberCard";
+import { team } from "../../data/landing";
 
 function Team() {
   return (
     <section id="equipe" className="section team">
-      <div className="section-title">
-        <span>04 — NOSSA EQUIPE</span>
-
-        <h2>
-          Quem desenvolveu
-          <strong> a Eletric Minds?</strong>
-        </h2>
-
-        <p>
-          Conheça os integrantes responsáveis pelo desenvolvimento do projeto.
-        </p>
-      </div>
+      <SectionTitle
+        tag="04 — NOSSA EQUIPE"
+        title="Quem desenvolveu"
+        highlight="a Eletric Minds?"
+      >
+        Conheça os integrantes responsáveis pelo desenvolvimento do projeto.
+      </SectionTitle>
 
       <div className="team-grid">
-        <article className="member">
-          <div className="member-number">01</div>
-
-          <h3>Murillo Padula</h3>
-
-          <span>RM 571620</span>
-        </article>
-
-        <article className="member">
-          <div className="member-number">02</div>
-
-          <h3>Renato Munhoz</h3>
-
-          <span>RM 573570</span>
-        </article>
-
-        <article className="member">
-          <div className="member-number">04</div>
-
-          <h3>Guilherme Mingues</h3>
-
-          <span>RM5685670</span>
-        </article>
-
-        <article className="member">
-          <div className="member-number">05</div>
-
-          <h3>Gabriel Vianna</h3>
-
-          <span>RM 571475</span>
-        </article>
+        {team.map((member, index) => (
+          <MemberCard
+            key={member.rm}
+            number={String(index + 1).padStart(2, "0")}
+            name={member.name}
+            rm={member.rm}
+          />
+        ))}
       </div>
     </section>
   );

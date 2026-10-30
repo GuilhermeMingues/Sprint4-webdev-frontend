@@ -1,20 +1,13 @@
-"use client";
+import SectionTitle from "../SectionTitle/sectionTitle";
+import GalleryCard from "../GalleryCard/galleryCard";
+import { concepts } from "../../data/landing";
 
 function Gallery() {
   return (
     <section id="galeria" className="section gallery">
-      <div className="section-title">
-        <span>03 — GALERIA</span>
-
-        <h2>
-          Conheça o conceito
-          <strong> JOVI.</strong>
-        </h2>
-
-        <p>
-          Uma representação visual da proposta do projeto Smartphone Brasil.
-        </p>
-      </div>
+      <SectionTitle tag="03 — GALERIA" title="Conheça o conceito" highlight="JOVI.">
+        Uma representação visual da proposta do projeto Smartphone Brasil.
+      </SectionTitle>
 
       <div className="gallery-grid">
         <article className="gallery-item large">
@@ -30,27 +23,14 @@ function Gallery() {
           </div>
         </article>
 
-        <article className="gallery-item">
-          <div className="gallery-content">
-            <span>CONCEITO 02</span>
-
-            <h3>Tecnologia</h3>
-
-            <p>
-              Uma identidade visual moderna para representar a proposta da JOVI.
-            </p>
-          </div>
-        </article>
-
-        <article className="gallery-item">
-          <div className="gallery-content">
-            <span>CONCEITO 03</span>
-
-            <h3>Smartphone Brasil</h3>
-
-            <p>Um projeto pensado a partir da realidade brasileira.</p>
-          </div>
-        </article>
+        {concepts.map((item) => (
+          <GalleryCard
+            key={item.tag}
+            tag={item.tag}
+            title={item.title}
+            description={item.description}
+          />
+        ))}
       </div>
     </section>
   );

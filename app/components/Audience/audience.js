@@ -1,4 +1,5 @@
-"use client";
+import AudienceItem from "../AudienceItem/audienceItem";
+import { audiences } from "../../data/landing";
 
 function Audience() {
   return (
@@ -23,40 +24,14 @@ function Audience() {
         </p>
 
         <div className="audience-items">
-          <div>
-            <strong>01</strong>
-
-            <div>
-              <h3>Usuários brasileiros</h3>
-
-              <p>
-                Pessoas que procuram uma experiência tecnológica alinhada ao seu
-                cotidiano.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <strong>02</strong>
-
-            <div>
-              <h3>Consumidores de tecnologia</h3>
-
-              <p>Usuários interessados em novas soluções para smartphones.</p>
-            </div>
-          </div>
-
-          <div>
-            <strong>03</strong>
-
-            <div>
-              <h3>Novas experiências</h3>
-
-              <p>
-                Pessoas que buscam praticidade e inovação em seu dispositivo.
-              </p>
-            </div>
-          </div>
+          {audiences.map((item, index) => (
+            <AudienceItem
+              key={item.title}
+              number={String(index + 1).padStart(2, "0")}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
         </div>
       </div>
     </section>

@@ -12,14 +12,14 @@ function Header() {
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
+              <Link href={link.href}>{link.label}</Link>
             </li>
           ))}
         </ul>
 
-        <a href="/#solucao" className="nav-button">
+        <Link href="/#solucao" className="nav-button">
           Conheça a JOVI
-        </a>
+        </Link>
       </nav>
     </header>
   );

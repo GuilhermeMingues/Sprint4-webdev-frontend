@@ -1,9 +1,14 @@
 "use client";
 
 import SectionTitle from "../SectionTitle/sectionTitle";
+import FormField from "../FormField/formField";
+import useContactForm from "../../hooks/useContactForm";
 import { contactChannels } from "../../data/landing";
 
 function Contact() {
+  const { valores, erros, enviando, retorno, handleChange, handleSubmit } =
+    useContactForm();
+
   return (
     <section id="contato" className="section contact">
       <SectionTitle tag="05 — CONTATO" title="Fale com a" highlight="equipe JOVI.">
@@ -12,43 +17,52 @@ function Contact() {
       </SectionTitle>
 
       <div className="contact-grid">
-        <form className="contact-form" action="#" method="post">
-          <div className="form-row">
-            <label htmlFor="nome">Nome</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Seu nome completo"
-              required
-            />
-          </div>
+        <form className="contact-form" onSubmit={handleSubmit} noValidate>
+          <FormField
+            id="nome"
+            label="Nome"
+            placeholder="Seu nome completo"
+            value={valores.nome}
+            onChange={handleChange}
+            error={erros.nome}
+          />
 
-          <div className="form-row">
-            <label htmlFor="email">E-mail</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="voce@email.com"
-              required
-            />
-          </div>
+          <FormField
+            id="email"
+            label="E-mail"
+            type="email"
+            placeholder="voce@email.com"
+            value={valores.email}
+            onChange={handleChange}
+            error={erros.email}
+          />
 
-          <div className="form-row">
-            <label htmlFor="mensagem">Mensagem</label>
-            <textarea
-              id="mensagem"
-              name="mensagem"
-              rows="5"
-              placeholder="Conte o que você quer saber sobre a JOVI"
-              required
-            ></textarea>
-          </div>
+          <FormField
+            id="mensagem"
+            label="Mensagem"
+            multiline
+            rows="5"
+            placeholder="Conte o que você quer saber sobre a JOVI"
+            value={valores.mensagem}
+            onChange={handleChange}
+            error={erros.mensagem}
+          />
 
-          <button type="submit" className="button primary">
-            Enviar mensagem
+          <button
+            type="submit"
+            className="button primary disabled:opacity-60"
+            disabled={enviando}
+          >
+            {enviando ? "Enviando..." : "Enviar mensagem"}
           </button>
+
+          {retorno && (
+            <p
+              className={`text-sm ${retorno.tipo === "sucesso" ? "text-green-400" : "text-red-400"}`}
+            >
+              {retorno.texto}
+            </p>
+          )}
         </form>
 
         <address className="contact-info">

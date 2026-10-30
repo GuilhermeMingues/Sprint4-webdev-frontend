@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Header from "../components/Header/header";
 import PrivateRoute from "../components/PrivateRoute/privateRoute";
+import DeliveryCheck from "../components/DeliveryCheck/deliveryCheck";
 import useAuth from "../hooks/useAuth";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { formatarPreco } from "../hooks/useSimulator";
@@ -59,6 +60,8 @@ function Painel() {
             </ul>
           )}
         </section>
+
+        <DeliveryCheck />
       </div>
     </main>
   );

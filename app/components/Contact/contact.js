@@ -1,7 +1,9 @@
 "use client";
 
+import Section from "../Section/section";
 import SectionTitle from "../SectionTitle/sectionTitle";
 import FormField from "../FormField/formField";
+import Button from "../Button/button";
 import useContactForm from "../../hooks/useContactForm";
 import { contactChannels } from "../../data/landing";
 
@@ -10,14 +12,14 @@ function Contact() {
     useContactForm();
 
   return (
-    <section id="contato" className="section contact">
+    <Section id="contato" bordered>
       <SectionTitle tag="05 — CONTATO" title="Fale com a" highlight="equipe JOVI.">
         Dúvidas sobre o projeto ou sobre a solução? Manda uma mensagem ou usa um
         dos canais abaixo.
       </SectionTitle>
 
-      <div className="contact-grid">
-        <form className="contact-form" onSubmit={handleSubmit} noValidate>
+      <div className="grid gap-[60px] lg:grid-cols-[1.2fr_0.8fr]">
+        <form className="grid gap-5" onSubmit={handleSubmit} noValidate>
           <FormField
             id="nome"
             label="Nome"
@@ -48,13 +50,9 @@ function Contact() {
             error={erros.mensagem}
           />
 
-          <button
-            type="submit"
-            className="button primary disabled:opacity-60"
-            disabled={enviando}
-          >
+          <Button type="submit" className="justify-self-start" disabled={enviando}>
             {enviando ? "Enviando..." : "Enviar mensagem"}
-          </button>
+          </Button>
 
           {retorno && (
             <p
@@ -65,20 +63,25 @@ function Contact() {
           )}
         </form>
 
-        <address className="contact-info">
-          <h3>Outros canais</h3>
+        <address className="grid content-start gap-5 border border-jovi-border bg-jovi-bg-alt p-[35px] not-italic">
+          <h3 className="text-lg font-bold">Outros canais</h3>
 
-          <ul>
+          <ul className="grid gap-4">
             {contactChannels.map((channel) => (
-              <li key={channel.label}>
-                <span>{channel.label}</span>
+              <li
+                key={channel.label}
+                className="border-t border-jovi-border pt-4 text-sm text-jovi-muted [overflow-wrap:anywhere] first:border-t-0 first:pt-0"
+              >
+                <span className="mb-1 block text-[11px] tracking-[2px] text-jovi-faint">
+                  {channel.label}
+                </span>
                 {channel.value}
               </li>
             ))}
           </ul>
         </address>
       </div>
-    </section>
+    </Section>
   );
 }
 

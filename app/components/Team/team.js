@@ -1,10 +1,11 @@
+import Section from "../Section/section";
 import SectionTitle from "../SectionTitle/sectionTitle";
 import MemberCard from "../MemberCard/memberCard";
 import { team } from "../../data/landing";
 
 function Team() {
   return (
-    <section id="equipe" className="section team">
+    <Section id="equipe" bordered>
       <SectionTitle
         tag="04 — NOSSA EQUIPE"
         title="Quem desenvolveu"
@@ -13,7 +14,7 @@ function Team() {
         Conheça os integrantes responsáveis pelo desenvolvimento do projeto.
       </SectionTitle>
 
-      <div className="team-grid">
+      <div className="grid grid-cols-1 gap-[15px] sm:grid-cols-2 lg:grid-cols-4">
         {team.map((member, index) => (
           <MemberCard
             key={member.rm}
@@ -23,7 +24,7 @@ function Team() {
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 

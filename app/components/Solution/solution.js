@@ -1,10 +1,11 @@
+import Section from "../Section/section";
 import SectionTitle from "../SectionTitle/sectionTitle";
 import SolutionCard from "../SolutionCard/solutionCard";
 import { solutions } from "../../data/landing";
 
 function Solution() {
   return (
-    <section id="solucao" className="section solution">
+    <Section id="solucao" bordered>
       <SectionTitle
         tag="01 — A SOLUÇÃO"
         title="Uma proposta criada"
@@ -15,7 +16,7 @@ function Solution() {
         pensada para seus usuários.
       </SectionTitle>
 
-      <div className="solution-grid">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {solutions.map((item, index) => (
           <SolutionCard
             key={item.title}
@@ -25,7 +26,7 @@ function Solution() {
           />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 
